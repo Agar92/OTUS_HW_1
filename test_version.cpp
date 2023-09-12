@@ -1,3 +1,4 @@
+/*
 #define BOOST_TEST_MODULE test_version
 
 #include "lib.h"
@@ -12,3 +13,11 @@ BOOST_AUTO_TEST_CASE(test_valid_version)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+*/
+#include "lib.h"
+#include <gtest/gtest.h>
+
+TEST(TEST_GOOGLETEST, Test1)
+{
+    ASSERT_NE(version(), 100);
+}
