@@ -7,16 +7,23 @@ foreach(case_file ${test_cases})
     add_executable(${case_name}_googletest ${case_file})
     target_link_libraries(${case_name}_googletest
       PUBLIC
-        ${Boost_LIBRARIES}
+#       ${Boost_LIBRARIES}
         helloworld
         gtest_main
         pthread
     )
-    set_target_properties(${case_name}_googletest PROPERTIES
-    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+
+#    set_target_properties(${case_name}_googletest PROPERTIES
+#    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+#    )
+    target_include_directories(${case_name}_googletest
+      PRIVATE
+        ${CMAKE_SOURCE_DIR}
+        ${gtest_SOURCE_DIR}
+        ${gtest_SOURCE_DIR}/include
     )
-    target_include_directories(${case_name}_googletest PRIVATE ${CMAKE_SOURCE_DIR})
+
     target_compile_options(${case_name}_googletest PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
