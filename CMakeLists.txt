@@ -72,7 +72,7 @@ endif()
 
 
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
-install(TARGETS helloworld RUNTIME DESTINATION lib)
+install(LIBRARY helloworld DESTINATION lib)
 
 set(CPACK_GENERATOR DEB)
 
